@@ -1,7 +1,7 @@
 {
-  "host": "localhost",
+  "host": "47.119.173.44",
   "port": "3306",
-  "user": "root",
+  "user": "admin",
   "password": "com.FoolCat.Hu.0422.admin",
   "database": "foolcat"
 }
