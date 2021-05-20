@@ -38,7 +38,9 @@ set DEBUG=test & npm start
 ```
 
 10、访问浏览器
-
+```
+localhost:3000
+```
 
 11、express 热更新方法
 ```
