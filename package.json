@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node-dev ./bin/www",
-    "dev": "node-dev ./bin/www"
+    "start": "set NODE_ENV=develop&&node-dev ./bin/www",
+    "dev": "set NODE_ENV=develop&&node-dev ./bin/www",
+    "por": "set NODE_ENV=develop&&node-dev ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

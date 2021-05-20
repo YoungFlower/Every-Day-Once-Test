@@ -3,7 +3,9 @@ var router = express.Router();
 var app = express()
 const resextra = require("../utils/apiRespone")
 
-var mysqlInfo = require('../mysql/index.json');
+var mysqlInfo = require(process.env.NODE_ENV == 'develop' ? '../mysql/index.json' : '../mysql/pro.json');
+// var mysqlInfo = require('../mysql/index.json');
+
 var mysql = require('mysql')
 var connection = mysql.createConnection(mysqlInfo);
 connection.connect()
