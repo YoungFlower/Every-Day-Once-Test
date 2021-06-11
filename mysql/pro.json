@@ -3,5 +3,6 @@
   "port": "3306",
   "user": "admin",
   "password": "com.FoolCat.Hu.0422.admin",
-  "database": "foolcat"
+  "database": "foolcat",
+  "multipleStatements": true
 }
