@@ -4,7 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+var expressWs = require('express-ws');
 
+var webstocket = require('./routes/webstocket');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var todoListRouter = require('./routes/todo-list');
@@ -15,6 +17,8 @@ const bodyParser = require('body-parser');
 const resextra = require("./utils/apiRespone")
 
 var app = express();
+
+
 
 app.use(cors());
 // view engine setup
@@ -36,13 +40,19 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+expressWs(app);
+
+app.use('/ifc', webstocket);
+
 app.use('/todo-list', todoListRouter)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // 返回操作拦截
 app.use(function (req, res, next) {
-  console.log(req)
+  // console.log(req)
   next()
 });
 
@@ -74,7 +84,5 @@ app.all("*", function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true); //携带cookie跨域请求
   req.method.toUpperCase() === "OPTIONS" ? res.sendStatus(200) : next(); //防止在预请求阶段就响应接口
 });
-
-
 
 module.exports = app;
